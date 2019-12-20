@@ -20,7 +20,7 @@ add.cluster.boundaries <- function(som, cluster){
     ny = som$grid$ydim
     for (row in 1:ny) {
         for (column in 1:nx){
-            text(column + offset - 0.5, row - 0.5, ind)
+            #text(column + offset - 0.5, row - 0.5, ind)
             x<-column+offset
             y<-row-1
             # except last row:

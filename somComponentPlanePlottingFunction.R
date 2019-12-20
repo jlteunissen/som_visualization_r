@@ -47,7 +47,7 @@ plotCplane <- function(som_obj, variable=sample(colnames(som_obj$data[[1]]), 1),
   hm <- component_plane_matrix(data=som_obj$codes[[1]], variable_index_or_name=variable)
   
   plot(0, 0, type = "n", axes = FALSE, xlim=c(0, som_obj$grid$xdim), 
-       ylim=c(0, som_obj$grid$ydim), xlab="", ylab= "", asp=1, main=substr(variable, 1, 10))
+       ylim=c(0, som_obj$grid$ydim), xlab="", ylab= "", asp=1, main=substr(variable, 1, 20))
   
   ColRamp <- rev(designer.colors(n=50, col=brewer.pal(9, "Spectral")))
   
