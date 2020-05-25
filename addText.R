@@ -64,8 +64,12 @@ add.points <- function(som){
     }
 }
 
-add.numbers <- function(som, scale=0.8){
-    counts<-get_counts(som$unit.classif)
+add.numbers <- function(som, scale=0.8, predictions=NULL, newindices=NULL){
+    if(missing(predictions)){
+        counts<-get_counts(som$unit.classif)
+    }else{
+        counts<-get_counts(predictions$unit.classif)
+    }
     offset <- 0.5 #offset for the hexagons when moving up a row
     ind <- 1
     nx = som$grid$xdim
@@ -76,6 +80,10 @@ add.numbers <- function(som, scale=0.8){
             if (!is.null(ns)){
                 x <- column + offset - 0.5
                 y <- row - 0.5
+                
+                if(!missing(newindices)){
+                    ns <- newindices[ns]
+                }
 
                 if (length(ns)==1){
                     text(x, y, ns[1], cex=scale)
