@@ -26,10 +26,10 @@ add.cluster.boundaries <- function(som, cluster){
             # except last row:
             if (row<ny){
                 # up lines: exclude first hexagon even lines
-                if ((ind%%nx!=1 | row%%2==1) && cluster[[ind]]!=cluster[[ind+9+2*offset]])
+                if ((ind%%nx!=1 | row%%2==1) && cluster[[ind]]!=cluster[[ind+nx-1+2*offset]])
                     segments(x-1, y + 0.875, x - 1/2, y + 1.125, lwd=4)
                 # down lines: exclude last hexagon odd lines
-                if ((ind%%nx!=0 | row%%2==0) && cluster[[ind]]!=cluster[[ind+10+2*offset]])
+                if ((ind%%nx!=0 | row%%2==0) && cluster[[ind]]!=cluster[[ind+nx+2*offset]])
                     segments(x - 1/2, y + 1.125, x, y + 0.875, lwd=4)
             }
             # vertical lines 
