@@ -9,7 +9,7 @@
 library(RColorBrewer) #to use brewer.pal
 library(fields) #to use designer.colors
 
-add.cluster.boundaries <- function(som, cluster){
+add.cluster.boundaries <- function(som, cluster, col='black', lwd=4){
     if (som$grid$toroidal==TRUE){
         stop("function assumes that SOM is not toroidal")
     }
@@ -27,15 +27,15 @@ add.cluster.boundaries <- function(som, cluster){
             if (row<ny){
                 # up lines: exclude first hexagon even lines
                 if ((ind%%nx!=1 | row%%2==1) && cluster[[ind]]!=cluster[[ind+nx-1+2*offset]])
-                    segments(x-1, y + 0.875, x - 1/2, y + 1.125, lwd=4)
+                    segments(x-1, y + 0.875, x - 1/2, y + 1.125, col=col, lwd=lwd)
                 # down lines: exclude last hexagon odd lines
                 if ((ind%%nx!=0 | row%%2==0) && cluster[[ind]]!=cluster[[ind+nx+2*offset]])
-                    segments(x - 1/2, y + 1.125, x, y + 0.875, lwd=4)
+                    segments(x - 1/2, y + 1.125, x, y + 0.875, col=col, lwd=lwd)
             }
             # vertical lines 
             if (column<nx){
                 if (cluster[[ind]]!=cluster[[ind+1]])
-                    segments(x, y+0.125, x, y+0.875, lwd=4)
+                    segments(x, y+0.125, x, y+0.875, col=col, lwd=lwd)
             }
             ind <- ind +1
         }
