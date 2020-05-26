@@ -77,7 +77,9 @@ plotUmat <- function(som_obj, type="Equal Interval"){
       Hexagon(column + offset, row - 1, col = ColorCode[ind])
       ind <- ind +1}
     offset <- ifelse(offset, 0, 0.5)
-  }  
+  }
+  # return:
+  neigh.dists
 }
 
 
