@@ -21,7 +21,7 @@ get_counts <- function(ci){
     counts
 }
 
-add.points <- function(som){
+add.points <- function(som, scale=1.0){
     counts<-get_counts(som$unit.classif)
     offset <- 0.5 #offset for the hexagons when moving up a row
     ind <- 1
@@ -35,27 +35,27 @@ add.points <- function(som){
                 y <- row - 0.5
                 # text(column + offset - 0.5, row - 0.5, length(count))
                 if (length(count)==1){
-                    text(x, y, 'o')
+                    text(x, y, 'o', cex=scale)
                 }else if(length(count)==2){
-                    text(x, y + 0.1875, 'o')
-                    text(x, y - 0.1875, 'o')
+                    text(x, y + 0.1875, 'o', cex=scale)
+                    text(x, y - 0.1875, 'o', cex=scale)
                 }else if(length(count)==3){
-                    text(x, y, 'o')
-                    text(x, y + 0.28125, 'o')
-                    text(x, y - 0.28125, 'o')
+                    text(x, y + 0.28125, 'o', cex=scale)
+                    text(x, y, 'o', cex=scale)
+                    text(x, y - 0.28125, 'o', cex=scale)
                 }else if(length(count)==4){
-                    text(x + 0.1875, y + 0.1875, 'o')
-                    text(x - 0.1875, y + 0.1875, 'o')
-                    text(x + 0.1875, y - 0.1875, 'o')
-                    text(x - 0.1875, y - 0.1875, 'o')
+                    text(x + 0.1875, y + 0.1875, 'o', cex=scale)
+                    text(x - 0.1875, y + 0.1875, 'o', cex=scale)
+                    text(x + 0.1875, y - 0.1875, 'o', cex=scale)
+                    text(x - 0.1875, y - 0.1875, 'o', cex=scale)
                 }else if(length(count)==5){
-                    text(x + 0.2, y + 0.2, 'o')
-                    text(x - 0.2, y + 0.2, 'o')
-                    text(x + 0.2, y - 0.2, 'o')
-                    text(x - 0.2, y - 0.2, 'o')
-                    text(x,y,'o')
+                    text(x + 0.2, y + 0.2, 'o', cex=scale)
+                    text(x - 0.2, y + 0.2, 'o', cex=scale)
+                    text(x + 0.2, y - 0.2, 'o', cex=scale)
+                    text(x - 0.2, y - 0.2, 'o', cex=scale)
+                    text(x,y, 'o', cex=scale)
                 }else{
-                    text(x, row - 0.5, length(count))
+                    text(x, row - 0.5, length(count), cex=scale)
                 }
             }
             ind <- ind +1
