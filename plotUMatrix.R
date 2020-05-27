@@ -78,8 +78,8 @@ plotUmat <- function(som_obj, type="Equal Interval"){
       ind <- ind +1}
     offset <- ifelse(offset, 0, 0.5)
   }
-  # return:
-  neigh.dists
+  # return but no print:
+  invisible(neigh.dists)
 }
 
 
